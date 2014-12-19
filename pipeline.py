@@ -208,7 +208,7 @@ class WgetArgs(object):
 project = Project(
     title="Example Seesaw Wpull Project",
     project_html="""
-        <img class="project-logo" alt="Project logo" src="" height="50px" title=""/>
+        <img class="project-logo" alt="Project logo" src="http://archiveteam.org/images/thumb/f/f1/Seesaw_figure.png/320px-Seesaw_figure.png" height="50px" title=""/>
         <h2>Example <span class="links"><a href="http://">Website</a> &middot;
             <a href="http://tracker.archiveteam.org/">Leaderboard</a></span></h2>
         <p>This is an example wpull project</p>
