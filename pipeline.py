@@ -35,6 +35,7 @@ WPULL_EXE = find_executable(
     re.compile(r"\b0\.1003\b"),
     [
         "wpull",
+        "./wpull_bootstrap",
         os.path.expanduser("~/.local/bin/wpull"),
         os.path.expanduser("~/.local/share/wpull-0.1003/wpull"),
     ]
