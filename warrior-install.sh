@@ -1,8 +1,8 @@
 #!/bin/sh -e
 
-VERSION='0.1003'
-TARBALL='wpull-0.1003.exe.linux-i686-3.2.tar.gz'
-CHECKSUM=843d34b1aecf757bd1f04efa472fea34
+VERSION='1.0'
+TARBALL='wpull-1.0-linux-i686-3.4.3-20150314005854.zip'
+CHECKSUM=9bb26c21e4904c92d530455646365d0f
 DOWNLOAD_URL="https://launchpad.net/wpull/trunk/v${VERSION}/+download/${TARBALL}"
 INSTALL_DIR="${HOME}/.local/share/wpull-${VERSION}/"
 
@@ -19,7 +19,9 @@ if [ ! -e "${INSTALL_DIR}/wpull" ]; then
 
     echo "Extracting contents to ${INSTALL_DIR}"
     mkdir -p "${INSTALL_DIR}"
-    tar -xzf "/tmp/${TARBALL}" --strip-components 1 --directory "${INSTALL_DIR}"
-    
+    # tar -xzf "/tmp/${TARBALL}" --strip-components 1 --directory "${INSTALL_DIR}"
+    python -c "import zipfile; f=zipfile.ZipFile('/tmp/${TARBALL}'); f.extractall('${INSTALL_DIR}')"
+    chmod +x ${INSTALL_DIR}/wpull
+
     echo Done
 fi

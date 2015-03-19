@@ -6,18 +6,6 @@ This is an example Seesaw project for demonstrating the use of Wpull instead of 
 Installing Wpull
 ================
 
-Portable Linux executable
--------------------------
+`warrior-install.sh` is to be run by the Warriors.
 
-An auto install script, `warrior-install.sh`, can be run by *both* the Warrior and manual script users.
-
-
-Via Pip
--------
-
-Manual script users can alternatively install Wpull:
-
-1. Install Python 3.2 or greater
-2. Install Pip.
-3. Run `wpull-local-install.sh`.
-
+Manual script users can install Wpull by following the install instructions at http://wpull.readthedocs.org/. (The install script works on Linux, but the download is relatively large.)

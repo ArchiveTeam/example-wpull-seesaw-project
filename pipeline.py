@@ -32,12 +32,13 @@ if StrictVersion(seesaw.__version__) < StrictVersion("0.7"):
 # 2. prints the required version string
 WPULL_EXE = find_executable(
     "Wpull",
-    re.compile(r"\b0\.1003\b"),
+    re.compile(r"\b1\.0\b"),
     [
-        "wpull",
-        "./wpull_bootstrap",
+        "./wpull",
+        os.path.expanduser("~/.local/share/wpull-1.0/wpull"),
         os.path.expanduser("~/.local/bin/wpull"),
-        os.path.expanduser("~/.local/share/wpull-0.1003/wpull"),
+        "./wpull_bootstrap",
+        "wpull",
     ]
 )
 
@@ -50,7 +51,7 @@ if not WPULL_EXE:
 #
 # Update this each time you make a non-cosmetic change.
 # It will be added to the WARC files and reported to the tracker.
-VERSION = "20141218.01"
+VERSION = "20150309.01"
 
 TRACKER_ID = 'examplecity'
 TRACKER_HOST = 'example.com.invalid'
@@ -176,7 +177,7 @@ class WgetArgs(object):
             "--page-requisites",
             "--span-hosts-allow", "page-requisites,linked-pages",
             "--timeout", "30",
-            "--tries", "1",
+            "--tries", "2",
             "--wait", "0.5",
             "--random-wait",
             "--waitretry", "5",
