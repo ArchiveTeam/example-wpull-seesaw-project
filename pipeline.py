@@ -1,4 +1,4 @@
-# check the seesaw version
+'''Example Seesaw pipeline.'''
 from distutils.version import StrictVersion
 import datetime
 import hashlib
@@ -20,12 +20,13 @@ from seesaw.tracker import PrepareStatsForTracker
 from seesaw.util import find_executable
 
 
-if StrictVersion(seesaw.__version__) < StrictVersion("0.7"):
-    raise Exception("This pipeline needs seesaw version 0.7 or higher.")
+# check the seesaw version
+if StrictVersion(seesaw.__version__) < StrictVersion("0.8.3"):
+    raise Exception("This pipeline needs seesaw version 0.8.3 or higher.")
 
 
 ###########################################################################
-# Find a useful Wget+Lua executable.
+# Find a useful Wpull executable.
 #
 # WPULL_EXE will be set to the first path that
 # 1. does not crash with --version, and
@@ -51,8 +52,8 @@ if not WPULL_EXE:
 #
 # Update this each time you make a non-cosmetic change.
 # It will be added to the WARC files and reported to the tracker.
-VERSION = "20150309.01"
-
+VERSION = "20150321.01"
+USER_AGENT = 'ArchiveTeam'
 TRACKER_ID = 'examplecity'
 TRACKER_HOST = 'example.com.invalid'
 
@@ -163,6 +164,7 @@ class WgetArgs(object):
         wget_args = [
             WPULL_EXE,
             "-nv",
+            # "--user-agent", USER_AGENT,
             "--python-script", "examplecity.py",
             "-o", ItemInterpolation("%(item_dir)s/wpull.log"),
             "--no-check-certificate",
